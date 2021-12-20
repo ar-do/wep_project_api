@@ -1,7 +1,7 @@
 const req = require("express/lib/request");
 const res = require("express/lib/response");
 const db = require("../models");
-const Article = db.article;
+const Article = db.article_r;
 const Op = db.Sequelize.Op;
 
 exports.findAll = (req, res) => {
@@ -29,14 +29,6 @@ exports.findOne = (req, res) => {
           message: "Error retrieving Article with id=" + id
         });
       });
-};
-
-exports.update = (req, res) => {
-
-};
-
-exports.delete = (req, res) => {
-
 };
 
 

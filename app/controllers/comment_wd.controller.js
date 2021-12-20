@@ -1,7 +1,7 @@
 const req = require("express/lib/request");
 const res = require("express/lib/response");
 const db = require("../models");
-const Comment = db.comment;
+const Comment = db.comment_r;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
@@ -27,31 +27,6 @@ exports.create = (req, res) => {
         });
     });
 
-};
-
-exports.findAll = (req, res) => {
-    Comment.findAll()
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving articles."
-      });
-    });
-};
-
-exports.findOne = (req, res) => {
-    Comment.findByPk(id)
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message: "Error retrieving Article with id=" + id
-        });
-      });
 };
 
 exports.update = (req, res) => {
