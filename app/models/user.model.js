@@ -12,12 +12,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         user_lname: {
             type: Sequelize.STRING
-        },
-        user_pwhash: {
-            type: Sequelize.STRING
-        },
-        user_apikey: {
-            type: Sequelize.STRING
         }
     }, {
         freezeTableName: true,

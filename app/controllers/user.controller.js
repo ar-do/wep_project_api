@@ -5,28 +5,7 @@ const User = db.user;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-
-    // Validate Request
-    if (!req.body.article_title) {
-        res.status(400).sed({
-            message: "Content can not be empty!"
-        });
-        return;
-    }
-
-    // Create a Article
-    const user = {
-    };
-
-    // Save Article in DB
-    User.create(article).then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occured while creating an article."
-        });
-    });
-
+  // Emtpy for now, will be done with seperate service (due to security..)
 };
 
 exports.findAll = (req, res) => {
@@ -43,6 +22,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
+  const id = req.params.id;
     User.findByPk(id)
       .then(data => {
         res.send(data);
@@ -55,11 +35,24 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
-
-};
-
-exports.delete = (req, res) => {
-
+  const id = req.params.id;
+  User.update(req.body, {
+      where: {user_id: id}
+  }).then(num => {
+      if (num == 1) {
+          res.send({
+              message: "User Updated"
+          });
+      } else {
+          res.send({
+              message: "Cannot update" 
+          });
+      }
+  }).catch(err => {
+      res.status(500).send({
+          message: "Error"
+      });
+  });
 };
 
 

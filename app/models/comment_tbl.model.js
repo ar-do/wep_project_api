@@ -1,16 +1,16 @@
 module.exports = (sequelize, Sequelize) => {
     const Comment = sequelize.define("tbl_comment", {
-        Id: {
+        comment_id: {
             type: Sequelize.INTEGER,
             primaryKey: true
         },
-        Content: {
+        comment_content: {
             type: Sequelize.STRING
         },
-        Username: {
-            type: Sequelize.STRING
+        fk_comment_user: {
+            type: Sequelize.INTEGER
         },
-        ArticleID: {
+        fk_comment_article: {
             type: Sequelize.INTEGER
         }
     }, {

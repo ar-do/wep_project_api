@@ -9,5 +9,7 @@ module.exports = app => {
 
     router.get("/:id", user.findOne);
 
+    router.put("/:id", user.update);
+
     app.use('/api/users', router);
 };
