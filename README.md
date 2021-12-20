@@ -1,6 +1,6 @@
 ## API Calls
 
-First Header  | Second Header | Second Header | Second Header
-------------- | ------------- | ------------- | -------------
-Content Cell  | Content Cell  | Content Cell  | Content Cell
-Content Cell  | Content Cell  | Content Cell  | Content Cell
+Method                  | Url                   | Body          | Action
+-------------           | -------------         | ------------- | -------------
+GET                     | api/articles          |               | Gets all articles
+GET                     | api/articles/:id      |               | Gets articles based on id
