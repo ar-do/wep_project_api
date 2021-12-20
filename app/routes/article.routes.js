@@ -3,8 +3,6 @@ module.exports = app => {
 
     var router = require("express").Router();
 
-    router.post("/", articles.create);
-
     router.get("/", articles.findAll);
 
     router.get("/:id", articles.findOne);
