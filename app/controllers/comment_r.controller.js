@@ -26,7 +26,7 @@ exports.getBasedOnArticle = (req, res) => {
   .catch(err => {
     res.status(500).send({
       message:
-        err.message || "Some error occurred while retrieving articles."
+        err.message || "Some error occurred while retrieving comments."
     });
   });
 };
@@ -40,7 +40,7 @@ exports.getBasedOnID = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Article with id=" + id
+        message: "Error retrieving comment with id=" + id
       });
     });
     console.log(id);
