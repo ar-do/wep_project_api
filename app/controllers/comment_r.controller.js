@@ -46,3 +46,17 @@ exports.getBasedOnID = (req, res) => {
     console.log(id);
 };
 
+exports.getBasedOnUsername = (req, res) => {
+  const user = req.query.user;
+
+  Comment.findAll({ where: { Username: user}})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving comment with username=" + user
+      });
+    });
+    console.log(user);
+};

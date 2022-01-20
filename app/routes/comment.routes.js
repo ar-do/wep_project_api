@@ -12,11 +12,13 @@ module.exports = app => {
 
     router.get("/id", comments_r.getBasedOnID);
 
+    router.get("/user", comments_r.getBasedOnUsername);
+
     router.put("/:id", comments_wd.update);
 
     router.post("/", comments_wd.create);
 
-    //router.delete("/:id", comments_wd.delete);
+    router.delete("/:id", comments_wd.delete);
 
     app.use('/api/comments', router);
 };
