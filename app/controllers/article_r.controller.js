@@ -7,15 +7,13 @@ const Op = db.Sequelize.Op;
 // Gets articles based on Username
 exports.getFromUsername = (req, res) => {
   const user = req.query.user;
-  console.log("2", req.query.user);
-  console.log("3", req.query);
   Article.findAll({ where: {Author: user}})
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Article with id="
+        message: "Error retrieving articles from user"
       });
     });
 };

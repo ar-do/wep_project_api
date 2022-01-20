@@ -14,7 +14,7 @@ module.exports = app => {
 
     router.put("/:id", comments_wd.update);
 
-    //router.post("/", comments_wd.create);
+    router.post("/", comments_wd.create);
 
     //router.delete("/:id", comments_wd.delete);
 

@@ -18,7 +18,7 @@ exports.create = (req, res) => {
         fk_comment_user: req.body.userid,
         fk_comment_article: req.body.articleid
       };
-    
+    console.log(comment);
       // Save Tutorial in the database
       Comment.create(comment)
         .then(data => {
