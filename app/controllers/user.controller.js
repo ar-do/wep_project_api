@@ -21,6 +21,21 @@ exports.findAll = (req, res) => {
     });
 };
 
+exports.findBasedOnUsername = (req, res) => {
+  const user = req.query.user;
+  console.log(user);
+  User.findAll({ where: {user_username: user}})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving articles from user"
+      });
+    });
+};
+
+
 exports.findOne = (req, res) => {
   const id = req.params.id;
     User.findByPk(id)

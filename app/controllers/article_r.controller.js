@@ -53,7 +53,7 @@ exports.getBasedOnID = (req, res) => {
 exports.getFromSearch = (req, res) => {
   const search = req.query.search;
   console.log(req.query);
-  var condition = search ? { Content: { [Op.like]: `%${search}%` } } : null;
+  var condition = search ? { Title: { [Op.like]: `%${search}%` } } : null;
 
   Article.findAll({ where: condition})
     .then(data => {
